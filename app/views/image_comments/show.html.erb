@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @image_comment.user_id %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @image_comment.image_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @image_comment.comment %>
+</p>
+
+<%= link_to 'Edit', edit_image_comment_path(@image_comment) %> |
+<%= link_to 'Back', image_comments_path %>
+
+<h2>コメントフォーム</h2>
+<%= form_for(@image_comment) do |f| %>
+<div class= "field">
+<%= f.label :comment %><br>
+<%= f.text_field :comment %>
+<%= f.hidden_field :image_id, :value => @image.id %>
+</div>
+<div class="actions">
+<%= f.submit %>
+</div>
+<% end %>
